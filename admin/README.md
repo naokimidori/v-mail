@@ -41,7 +41,7 @@ PUBLIC_MAILBOX_URL=https://mail.example.com
 npm run build
 ```
 
-The static output is written to `dist/` and can be deployed to Cloudflare Pages.
+The static output is written to `dist/` and can be deployed to Cloudflare Pages, Vercel, Netlify, or any similar static hosting platform.
 
 ## Visual Refresh Verification
 

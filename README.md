@@ -1,6 +1,6 @@
 # V-Mail
 
-V-Mail is a two-frontend web portal for a Cloudflare-backed temporary email service. The repository contains an ordinary-user portal and an admin console, both built as Vite + React static applications that can be deployed with Cloudflare Pages.
+V-Mail is a two-frontend web portal for a Cloudflare-backed temporary email service. The repository contains an ordinary-user portal and an admin console, both built as Vite + React static applications that can be deployed to static hosting platforms such as Cloudflare Pages, Vercel, Netlify, or similar services.
 
 中文文档见 [README_CN.md](README_CN.md).
 
@@ -20,7 +20,7 @@ The apps are intentionally frontend-only. They expect an existing Worker or Page
 - TypeScript
 - Tailwind CSS
 - Vitest + Testing Library
-- Cloudflare Pages-ready static builds
+- Static-hosting-ready builds
 
 ## Repository Layout
 
@@ -96,9 +96,9 @@ npm run build
 
 Each app writes its static output to `dist/`.
 
-## Cloudflare Pages Deployment
+## Deployment
 
-Recommended setup is two Cloudflare Pages projects:
+The apps build to plain static assets, so they can be hosted on Cloudflare Pages, Vercel, Netlify, or any platform that supports SPA fallback routing. The recommended Cloudflare Pages setup is two projects:
 
 ### User Portal
 
@@ -139,7 +139,7 @@ Both apps include `public/_redirects` with SPA fallback:
 /* /index.html 200
 ```
 
-This allows React Router routes such as `/inbox`, `/settings`, and `/accounts` to refresh correctly on Cloudflare Pages.
+This allows React Router routes such as `/inbox`, `/settings`, and `/accounts` to refresh correctly on static hosting platforms. Use the equivalent SPA fallback setting if your host does not support Cloudflare Pages-style `_redirects`.
 
 ## API Expectations
 

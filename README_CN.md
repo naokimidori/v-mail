@@ -1,6 +1,6 @@
 # V-Mail
 
-V-Mail 是一个面向 Cloudflare 临时邮箱服务的双前端项目。仓库中包含普通用户门户和管理后台，两者都是 Vite + React 静态应用，可以直接用 Cloudflare Pages 部署。
+V-Mail 是一个面向 Cloudflare 临时邮箱服务的双前端项目。仓库中包含普通用户门户和管理后台，两者都是 Vite + React 静态应用，可以部署到 Cloudflare Pages、Vercel、Netlify 等静态托管平台。
 
 English documentation: [README.md](README.md).
 
@@ -20,7 +20,7 @@ English documentation: [README.md](README.md).
 - TypeScript
 - Tailwind CSS
 - Vitest + Testing Library
-- 适配 Cloudflare Pages 的静态构建
+- 适配静态托管平台的构建产物
 
 ## 目录结构
 
@@ -96,9 +96,9 @@ npm run build
 
 每个应用的构建产物都会输出到各自的 `dist/` 目录。
 
-## Cloudflare Pages 部署
+## 部署
 
-推荐创建两个 Cloudflare Pages 项目：
+两个应用都会构建成普通静态资源，因此可以托管在 Cloudflare Pages、Vercel、Netlify 或任何支持 SPA 路由回退的平台。推荐的 Cloudflare Pages 配置是创建两个项目：
 
 ### 用户门户
 
@@ -139,7 +139,7 @@ PUBLIC_MAILBOX_URL=https://mail.example.com
 /* /index.html 200
 ```
 
-这样在 Cloudflare Pages 上刷新 `/inbox`、`/settings`、`/accounts` 等 React Router 路由时不会返回 404。
+这样刷新 `/inbox`、`/settings`、`/accounts` 等 React Router 路由时不会返回 404。如果使用的托管平台不支持 Cloudflare Pages 风格的 `_redirects`，请配置等价的 SPA fallback 规则。
 
 ## API 约定
 
